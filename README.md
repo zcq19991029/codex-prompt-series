@@ -34,13 +34,13 @@
 
 | 阶段 | 调用 | 依据与依赖 |
 |---|---|---|
-| 规划 | `$teaching-image-plan` | 09 工作流，配套生成技能提供完整视觉规范 |
-| 生成 | `$teaching-image-generate` | 08 生图全文，调用公共 imagegen |
-| 复刻 | `$teaching-image-rebuild` | 08 重建要求，调用公共 image-to-editable-ppt |
+| 规划 | `$teach-1-plan` | 09 工作流，配套生成技能提供完整视觉规范 |
+| 生成 | `$teach-2-gen` | 08 生图全文，调用公共 imagegen |
+| 复刻 | `$teach-3-ppt` | 08 重建要求，调用公共 image-to-editable-ppt |
 
 技能真实文件位于本仓库 .agents/skills，各技能仅含 SKILL.md、界面元数据及确有需要的参考文件，不另建技能 README。提示词仍保留，适合未安装 Skill 的工具直接复制。
 仓库内的三个技能应配套使用；在其他项目调用前，将其安装或链接到该环境的技能发现目录。仓库文件存在不等于当前聊天已经载入，创建后在新聊天检查技能列表；未发现时可明确要求读取对应 SKILL.md。
-示例：“用 $teaching-image-plan 分析这份 PPT，先给规划”；确认后“用 $teaching-image-generate 生成确认的图”；新聊天“用 $teaching-image-rebuild 按本套复现交接忠实复刻”。
+示例：“用 $teach-1-plan 分析这份 PPT，先给规划”；确认后“用 $teach-2-gen 生成确认的图”；新聊天“用 $teach-3-ppt 按本套复现交接忠实复刻”。
 生成技能 references/image-spec.md 是 08 第一个代码块的打包副本；修改 08 时必须同步并比较正文，避免分叉。规划与复刻技能维护阶段职责，不复制公共工具后端。
 验证包括 skill-creator 的 quick_validate、YAML、相对引用及规范正文一致性；尚未以真实 PPT 执行三阶段验收。
 
