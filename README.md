@@ -132,6 +132,23 @@ MIT License
 
 本机目录链接只用于本机调用，不作为可移植文件提交；使用项目 README 记录来源、依赖、安装或重建链接的方法。换电脑后重新建立链接。02 的文档重建默认仅盘点，未经整理授权不自动搬迁或清理技能。
 
+## 统一目录与技能规则核对（2026-10-08）
+
+本机已知技能原件与使用项目索引如下。以下为项目相对路径，外部原件不复制到本仓库；跨电脑按真实源码路径重建入口，系统/插件技能不纳入迁移。
+
+| 调用名 | 中文用途 | 原件相对本仓库 | 已知使用项目 | 归属 |
+|---|---|---|---|---|
+| teach-1-plan | 教学图规划 | .agents/skills/teach-1-plan | 生图转化/生图 | 仓库内原件 |
+| teach-2-gen | 教学图生成 | .agents/skills/teach-2-gen | 生图转化/生图 | 仓库内原件 |
+| teach-4-ppt | 可编辑PPT复刻 | .agents/skills/teach-4-ppt | 生图转化/复现 | 仓库内原件 |
+| classroom-bubble-maintainer | 课堂气泡维护 | ../classroom-bubble-score/.agents/skills/classroom-bubble-maintainer | classroom-bubble-score | 产品原件 |
+| quiz-pages-release | 刷题产品维护 | ../高校资格证刷题/.agents/skills/quiz-pages-release | 高校资格证刷题 | 产品原件 |
+| ai-industry-web-builder | 行业网站构建 | ../行业AI网站构建 | 教师备课网站 | 已有独立Git源仓库，保留 |
+| sites-app-maintainer | Sites应用维护 | ../skills/sites-app-maintainer | Ai设计各Sites项目 | 已有独立Git源仓库，保留 |
+| ppt-script | 教师逐字稿 | ../../单片机备课/vocational-ppt-transcript | 单片机备课 | 已有独立Git源仓库，保留 |
+
+独立发布源码仓库是现有归属的保留例外；新跨项目自创技能仍默认 .agents/skills。索引不等于调用或运行已经通过。
+
 教学图四阶段技能的独立公开安装与调用说明见 [可编辑教学图](https://github.com/zcq19991029/editable-teaching-graphics)。本仓库仍维护四个技能原件；公开包使用同步脚本按版本发布，避免两边独立修改。
 
 - [10-教学图模板嵌入与PPT合成](prompts/10-教学图模板嵌入与PPT合成-直接复制.md)：生图后按模板输出展示版PPT。
@@ -206,3 +223,8 @@ MIT License
 异步提问后保持当前轮次等待，收到真实选择或输入才继续；不能发出问题就以最终答复结束。每次等待不超过60秒，超时继续等待，不默认选择、不重复发题。用户取消或暂停时停止等待。仅有文字问答且没有等待机制的环境须明确说明由下一条消息恢复，不作持续等待承诺。
 
 每个教学图阶段完成后先报告结果，再主动询问下一步并等待选择；允许停止或结束。已明确授权连续执行的范围不重复确认，未授权阶段不自动启动。
+# 仓库职责与推送规则
+
+本仓库用于复制粘贴式 Prompt；实际运行的 `teach-1-plan`、`teach-2-gen`、`teach-3-embed`、`teach-4-ppt` 技能原件优先维护于 `editable-teaching-graphics`。
+
+修改技能原件时，先更新并推送：`https://github.com/zcq19991029/editable-teaching-graphics`；本仓库只同步复制粘贴玩法所需的对应 Prompt 和说明，不能替代技能仓库。推送前必须核对远程地址，避免把技能修改误推到本仓库。
