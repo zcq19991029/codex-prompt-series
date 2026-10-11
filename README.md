@@ -227,4 +227,6 @@ MIT License
 
 本仓库用于复制粘贴式 Prompt；实际运行的 `teach-1-plan`、`teach-2-gen`、`teach-3-embed`、`teach-4-ppt` 技能原件优先维护于 `editable-teaching-graphics`。
 
+模板嵌图的标题必须保留参考页红色页号箭头、标题区相对位置和横线关系；中文标题需写入东亚字体属性并验证 WPS 新增字符不会回落为“宋体（正文）”。
+
 修改技能原件时，先更新并推送：`https://github.com/zcq19991029/editable-teaching-graphics`；本仓库只同步复制粘贴玩法所需的对应 Prompt 和说明，不能替代技能仓库。推送前必须核对远程地址，避免把技能修改误推到本仓库。
