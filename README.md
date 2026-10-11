@@ -128,7 +128,7 @@ MIT License
 
 ## 技能原件与项目链接
 
-技能位置规则：教学图四阶段技能的唯一源码仓库是 `C:/Users/25466/Desktop/codex项目/editable-teaching-graphics`；本仓库只维护复制粘贴 Prompt。各项目的 `.agents/skills/teach-*` 必须是指向该源码仓库的 Junction/链接，不得复制生成物理 `SKILL.md`。产品专用技能仍留在各自产品仓库，系统与插件技能维持软件管理位置。
+技能位置规则：教学图四阶段技能的唯一源码仓库是 `C:/Users/25466/Desktop/codex项目/skills/editable-teaching-graphics`；本仓库只维护复制粘贴 Prompt。各项目的 `.agents/skills/teach-*` 必须是指向该源码仓库的 Junction/链接，不得复制生成物理 `SKILL.md`。产品专用技能仍留在各自产品仓库，系统与插件技能维持软件管理位置。
 
 本机目录链接只用于本机调用，不作为可移植文件提交；使用项目 README 记录来源、依赖、安装或重建链接的方法。换电脑后重新建立链接。02 的文档重建默认仅盘点，未经整理授权不自动搬迁或清理技能。
 
