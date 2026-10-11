@@ -30,7 +30,7 @@
 | 目录 | 内容 |
 |---|---|
 | `prompts/` | 可直接复制使用的 Prompt |
-| `.agents/skills/` | 教学图规划、生成、模板合成、复刻四个可复用 Skill |
+| `.agents/skills/` | 历史兼容快照，仅供比对；不是运行时技能来源，不再直接编辑 |
 | `CHANGELOG.md` | 版本和内容变更记录 |
 
 ## 当前 Prompt
@@ -60,7 +60,7 @@
 | 嵌图合成 | `$teach-3-embed` | 10 模板合成要求，复用PPT读写和渲染能力 |
 | 复刻 | `$teach-4-ppt` | 08 重建要求，调用公共 image-to-editable-ppt |
 
-技能真实文件位于本仓库 .agents/skills，各技能仅含 SKILL.md、界面元数据及确有需要的参考文件，不另建技能 README。提示词仍保留，适合未安装 Skill 的工具直接复制。
+教学图运行技能的唯一原件位于 [`editable-teaching-graphics`](https://github.com/zcq19991029/editable-teaching-graphics) 的 `.agents/skills/`。本仓库的 `.agents/skills/` 只保留历史兼容快照，不能作为运行时来源，也不能在这里独立修改；需要变更时先改技能仓库，再按需同步复制粘贴 Prompt 和说明。
 仓库内的四个技能应配套使用；在其他项目调用前，将其安装或链接到该环境的技能发现目录。仓库文件存在不等于当前聊天已经载入，创建后在新聊天检查技能列表；未发现时可明确要求读取对应 SKILL.md。
 示例：“用 $teach-1-plan 先只给图数量、标题和拆分说明，等我确认增减”；确认后编写并保存完整提示词，回复“生成”再用 $teach-2-gen 逐张读文件生图；新聊天可选用 $teach-4-ppt 逐图复现。
 完整提示词按“标题-提示词.md”保存，并建立提示词索引.md；生成时读取当前完整文件与素材，保存检查后再处理下一图，记录输入版本/SHA-256与输出，避免凭聊天记忆改写。默认聊天只给索引与概览，要求全文时再展示。生成技能规范与08保持一致；规划与复刻技能不复制公共工具后端。
@@ -128,19 +128,20 @@ MIT License
 
 ## 技能原件与项目链接
 
-01、02 已统一技能位置规则：产品专用原件放所属产品的 `.agents/skills/`；跨项目自创原件放统一源码仓库（本仓库）的 `.agents/skills/`；项目和用户级发现入口按需链接到原件。第三方独立安装可在用户级 `~/.agents/skills/` 保留唯一原件；已有 `~/.codex/skills/` 兼容入口按环境保留。系统与插件技能维持软件管理位置。
+技能位置规则：教学图四阶段技能的唯一源码仓库是 `C:/Users/25466/Desktop/codex项目/editable-teaching-graphics`；本仓库只维护复制粘贴 Prompt。各项目的 `.agents/skills/teach-*` 必须是指向该源码仓库的 Junction/链接，不得复制生成物理 `SKILL.md`。产品专用技能仍留在各自产品仓库，系统与插件技能维持软件管理位置。
 
 本机目录链接只用于本机调用，不作为可移植文件提交；使用项目 README 记录来源、依赖、安装或重建链接的方法。换电脑后重新建立链接。02 的文档重建默认仅盘点，未经整理授权不自动搬迁或清理技能。
 
 ## 统一目录与技能规则核对（2026-10-08）
 
-本机已知技能原件与使用项目索引如下。以下为项目相对路径，外部原件不复制到本仓库；跨电脑按真实源码路径重建入口，系统/插件技能不纳入迁移。
+本机已知技能入口与使用项目索引如下。以下路径用于定位和重建链接；不把技能源码复制到任务目录或提示词仓库，系统/插件技能不纳入迁移。
 
 | 调用名 | 中文用途 | 原件相对本仓库 | 已知使用项目 | 归属 |
 |---|---|---|---|---|
-| teach-1-plan | 教学图规划 | .agents/skills/teach-1-plan | 生图转化/生图 | 仓库内原件 |
-| teach-2-gen | 教学图生成 | .agents/skills/teach-2-gen | 生图转化/生图 | 仓库内原件 |
-| teach-4-ppt | 可编辑PPT复刻 | .agents/skills/teach-4-ppt | 生图转化/复现 | 仓库内原件 |
+| teach-1-plan | 教学图规划 | `editable-teaching-graphics/.agents/skills/teach-1-plan` | 生图转化/生图 | 唯一源码仓库 |
+| teach-2-gen | 教学图生成 | `editable-teaching-graphics/.agents/skills/teach-2-gen` | 生图转化/生图 | 唯一源码仓库 |
+| teach-3-embed | 模板嵌图合成 | `editable-teaching-graphics/.agents/skills/teach-3-embed` | 生图转化/生图 | 唯一源码仓库 |
+| teach-4-ppt | 可编辑PPT复刻 | `editable-teaching-graphics/.agents/skills/teach-4-ppt` | 生图转化/复现 | 唯一源码仓库 |
 | classroom-bubble-maintainer | 课堂气泡维护 | ../classroom-bubble-score/.agents/skills/classroom-bubble-maintainer | classroom-bubble-score | 产品原件 |
 | quiz-pages-release | 刷题产品维护 | ../高校资格证刷题/.agents/skills/quiz-pages-release | 高校资格证刷题 | 产品原件 |
 | ai-industry-web-builder | 行业网站构建 | ../行业AI网站构建 | 教师备课网站 | 已有独立Git源仓库，保留 |
@@ -149,7 +150,7 @@ MIT License
 
 独立发布源码仓库是现有归属的保留例外；新跨项目自创技能仍默认 .agents/skills。索引不等于调用或运行已经通过。
 
-教学图四阶段技能的独立公开安装与调用说明见 [可编辑教学图](https://github.com/zcq19991029/editable-teaching-graphics)。本仓库仍维护四个技能原件；公开包使用同步脚本按版本发布，避免两边独立修改。
+教学图四阶段技能的独立公开安装与调用说明见 [可编辑教学图](https://github.com/zcq19991029/editable-teaching-graphics)。技能修改必须先推送该仓库；本仓库只同步与技能配套的 Prompt/说明，不反向成为技能来源。
 
 - [10-教学图模板嵌入与PPT合成](prompts/10-教学图模板嵌入与PPT合成-直接复制.md)：生图后按模板输出展示版PPT。
 
